@@ -29,4 +29,4 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 Route::post('/restaurants/{id}/categories', [RestaurantController::class, 'addCategory']);
 Route::get('/restaurants/{restaurant}/categories', [CategoryController::class, 'getCategoriesByRestaurant']);
 Route::get('/showAllCategories', [CategoryController::class, 'showAllCategories']);
-Route::delete('/restaurants/{restaurantId}/categories/{categoryId}', [RestaurantController::class, 'deleteCategoryFromResturant']);
+Route::delete('/restaurants/{restaurantId}/categories/{categoryId}', [RestaurantController::class, 'deleteCategoryFromRestaurant']);
