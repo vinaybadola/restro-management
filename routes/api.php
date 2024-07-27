@@ -30,3 +30,6 @@ Route::post('/restaurants/{id}/categories', [RestaurantController::class, 'addCa
 Route::get('/restaurants/{restaurant}/categories', [CategoryController::class, 'getCategoriesByRestaurant']);
 Route::get('/showAllCategories', [CategoryController::class, 'showAllCategories']);
 Route::delete('/restaurants/{restaurantId}/categories/{categoryId}', [RestaurantController::class, 'deleteCategoryFromRestaurant']);
+Route::get('/{any}', function (Request $request) {
+    return response()->json(['message' => 'API route not found'], 404);
+})->where('any', '.*');

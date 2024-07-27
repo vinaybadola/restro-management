@@ -1,24 +1,25 @@
 <template>
   <div>
     <h1>Welcome to The Restaurant!</h1>
-    <ul>
+    <ul class="restaurant_name">
       <li v-for="restaurant in restaurants" :key="restaurant.id">
         {{ restaurant.name }}
         <span>({{ restaurant.categories.length }} categories)</span>
-        <button @click="toggleCategories(restaurant.id)">
+        <button class="show-categories" @click="toggleCategories(restaurant.id)">
           {{ restaurant.showCategories ? 'Hide Categories' : 'Show Categories' }}
         </button>
-        <button @click="showCategoryModal(restaurant.id)">Add Category</button>
+        <button class="add-categories" @click="showCategoryModal(restaurant.id)">Add Category</button>
 
         <!-- Show categories of the restaurant -->
         <div v-if="restaurant.showCategories">
           <h3>Categories:</h3>
-          <ul>
+          <ul v-if="restaurant.categories.length > 0">
             <li v-for="category in restaurant.categories" :key="category.id">
               {{ category.name }}
               <button @click="removeCategoryFromRestaurant(restaurant.id, category.id)">Delete</button>
             </li>
           </ul>
+          <p v-else>No categories found</p>
         </div>
       </li>
     </ul>
@@ -72,7 +73,7 @@ export default {
     },
     async fetchCategories() {
       try {
-        const response = await axios.get('/api/showAllCategories'); // Ensure this endpoint exists
+        const response = await axios.get('/api/showAllCategories'); // Fetch all categories
         this.categories = response.data;
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -101,7 +102,7 @@ export default {
       const restaurant = this.restaurants.find(r => r.id === restaurantId);
       if (restaurant) {
         restaurant.showCategories = !restaurant.showCategories;
-        // Optionally fetch categories if needed
+      
       }
     },
     async removeCategoryFromRestaurant(restaurantId, categoryId) {
@@ -119,7 +120,7 @@ export default {
 
 <style scoped>
 h1 {
-  color: #42b983;
+  color: #8c85ff;
   text-align: center;
 }
 button {
@@ -142,6 +143,30 @@ button {
   border-radius: 5px;
   width: 300px;
 }
+.show-categories{
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  color: white;
+  background-color: #4681f4 ;
+  font-size: 16px;
+  cursor: pointer;
+}
+.restaurant_name{
+  list-style-type: none;
+  font-size: large;
+  font-weight: bold;
+  display: inline-grid;
+  gap: 2rem;
+ 
+}
+.add-categories{
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  color: white;
+  background-color: #4681f4 ;
+  font-size: 16px;
+  cursor: pointer;
+}
 </style>
-
-

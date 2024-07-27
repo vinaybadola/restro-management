@@ -1,7 +1,11 @@
 <template>
     <div>
       <NavBar />
-      <router-view></router-view>
+      <router-view v-slot="{ Component, route }">
+        <div :key="route.name">
+            <Component :is="Component" />
+        </div>
+    </router-view>
     </div>
   </template>
   
@@ -16,5 +20,7 @@ import NavBar from './Components/NavBar.vue';
   </script>
   
   <style>
-  /* Global styles go here */
+  * {
+    font-family: scandia-web,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+  }
   </style>
