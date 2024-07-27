@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Resturants;
+use App\Models\Restaurant;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,7 +20,7 @@ class RestaurantSeeder extends Seeder
         ];
 
         for ($i = 3; $i <= 10; $i++) {
-            Resturants::create([
+            Restaurant::create([
                 'name' => "Restaurant $i",
                 'address' => "$i Some Street",
                 'phone' => "555-000-$i",

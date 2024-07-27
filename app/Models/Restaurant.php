@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
+
+    protected $table = 'restaurant';
+    
     protected $fillable = ['name', 'address', 'phone'];
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_restaurant', 'resturants_id', 'categories_id');
+        return $this->belongsToMany(Category::class, 'category_restaurant', 'restaurant_id', 'category_id');
 
     }
 }
