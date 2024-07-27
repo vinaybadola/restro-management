@@ -13,7 +13,7 @@ class Category extends Model
 
     public function restaurants()
     {
-        return $this->belongsToMany(Restaurant::class, 'category_restaurant', 'categories_id', 'resturants_id');
+        return $this->belongsToMany(Restaurant::class, 'category_restaurant', 'categories_id', 'restaurants_id');
 
     }
 }

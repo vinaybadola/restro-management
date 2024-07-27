@@ -37,7 +37,7 @@ class RestaurantController extends Controller
     /**
      * Delete a category from a restaurant.
      */
-    public function deleteCategoryFromResturant($restaurantId, $categoryId)
+    public function deleteCategoryFromRestaurant($restaurantId, $categoryId)
     {
         try {
             $restaurant = Restaurant::findOrFail($restaurantId);

@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
-
-    protected $table = 'restaurant';
-    
     protected $fillable = ['name', 'address', 'phone'];
 
     public function categories()

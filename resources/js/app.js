@@ -1,18 +1,12 @@
-// import "./bootstrap";
-// import { createApp } from "vue";
-
-// import Resturant from './Components/Resturant.vue';
-
-// createApp(Resturant).mount("#app");
 
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import Categories from './Components/Categories.vue';
-import Resturant from './Components/Resturant.vue';
+import Restaurant from './Components/Restaurant.vue';
 
 const routes = [
-  { path: '/', component: Resturant },
+  { path: '/', component: Restaurant },
   { path: '/categories', component: Categories },
 ];
 
